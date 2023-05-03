@@ -1,0 +1,31 @@
+<div *ngIf="limitOrder">
+   
+    <h3>Placez un ordre short</h3>th>
+    <table>
+        <thead>
+            <th>Type</th>
+            <th>Paire</th>
+            <th>Prix </th> 
+            <th>Quantité</th>
+            <th>Take Profit</th>
+            <th>Stop Loss</th> 
+            <th>Levier</th>        
+        </thead>
+        <tbody>
+            <tr>
+                <td>  
+                   <app-position-type> </app-position-type> 
+                </td>
+                <td><input [(ngModel)]="limitOrder.pair" placeholder={{limitOrder.pair}} /></td>
+                <td><input [(ngModel)]="limitOrder.price" placeholder={{limitOrder.price}} /></td>
+                <td><input [(ngModel)]="limitOrder.quantity" placeholder={{limitOrder.quantity}} /></td>
+                <td><input [(ngModel)]="limitOrder.takeProfit" placeholder={{limitOrder.takeProfit}} /></td>
+                <td><input [(ngModel)]="limitOrder.stopLoss" placeholder={{limitOrder.stopLoss}} /></td> 
+                <td><input [(ngModel)]="limitOrder.leverage" placeholder={{limitOrder.leverage}} /></td> 
+                <td><button (click)="placeLimitOrder(limitOrder)" >Save</button></td>
+            </tr>
+        </tbody>
+       
+    </table>
+
+ </div>  

@@ -1,0 +1,12 @@
+<div class="container">           
+           
+    <select class='select-option'
+    (change)='onOptionsSelected($event)'
+    >   
+        <option disabled>Select Position</option>
+        <option class='option' *ngFor="let pos of positions "
+        [value]="pos.value"
+        >{{pos.viewValue}}</option>
+    </select>
+       
+</div>
