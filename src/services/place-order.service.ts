@@ -21,7 +21,10 @@ private url="Order";
 
 public postPerpetualLimitOrder(order : LimitOrder) : Observable<Data>{
 
-    return this.http.post<Data>(`${environment.apiUrl}/${this.url}`,order);
+    var response = this.http.post<Data>(`${environment.apiUrl}/${this.url}`,order);
+    //response.subscribe(data => console.log(data.error));
+    return response;
+    
 
 }
 

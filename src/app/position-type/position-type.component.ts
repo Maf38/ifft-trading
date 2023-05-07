@@ -1,10 +1,10 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component,EventEmitter,Output } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
-import { OrderSide } from 'src/models/Enum/order-side';
+import { Order } from 'src/models/order';
 
-class Position {
-    value: OrderSide =OrderSide.Buy;
-    viewValue: string = "Long";
+export class Position {
+    value = "Buy";
+    viewValue = "Long";
 }
 
 @Component({
@@ -15,20 +15,17 @@ class Position {
 export class PositionTypeComponent {
   
   
-  currentPosition: Position = new Position();
+  position: Position = new Position();
 
   positions : Position [] = [
-    {value: OrderSide.Buy, viewValue: "Long"},
-    {value: OrderSide.Sell, viewValue: "Short"}
+    {value: "Buy", viewValue: "Long"},
+    {value: "Sell", viewValue: "Short"}
   ];
  
+  @Output() orderSide = new EventEmitter<string>();
 
-  public onOptionsSelected(event:any) {
-    const value = event.target.value;
-    console.log(value);
-    this.currentPosition = this.positions[value];
-    console.log(this.currentPosition.viewValue);
-    console.log(this.currentPosition.value);
+  public onOptionsSelected(event:any) {    
+    this.orderSide.emit(event.target.value);
  }
    
 

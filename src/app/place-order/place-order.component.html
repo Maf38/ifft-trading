@@ -1,6 +1,6 @@
 <div *ngIf="limitOrder">
    
-    <h3>Placez un ordre short</h3>th>
+    <h3>Placez un ordre short</h3>
     <table>
         <thead>
             <th>Type</th>
@@ -14,7 +14,7 @@
         <tbody>
             <tr>
                 <td>  
-                   <app-position-type> </app-position-type> 
+                   <app-position-type (orderSide)="onPositionChanged($event)"> </app-position-type> 
                 </td>
                 <td><input [(ngModel)]="limitOrder.pair" placeholder={{limitOrder.pair}} /></td>
                 <td><input [(ngModel)]="limitOrder.price" placeholder={{limitOrder.price}} /></td>
